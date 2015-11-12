@@ -7,8 +7,7 @@
 						http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
 	default-lazy-init="true">
 
-	<context:property-placeholder
-		location="classpath:database.properties" />
+	<context:property-placeholder location="/WEB-INF/db/database.properties" />
 
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
 		destroy-method="close" lazy-init="false" scope="singleton">
@@ -31,7 +30,7 @@
 
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean"
-		p:dataSource-ref="dataSource" p:packagesToScan="com.demo.myapp.db.pojo" lazy-init="false" scope="singleton">
+		p:dataSource-ref="dataSource" p:packagesToScan="com.demo.myapp.db.pojo" lazy-init="true" scope="singleton">
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">${hibernate.dialect}</prop>

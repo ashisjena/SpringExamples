@@ -1,11 +1,11 @@
 package com.demo.myapp.db;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.demo.myapp.db.inter.ContactRepository;
 import com.demo.myapp.db.inter.ContactService;
 import com.demo.myapp.db.pojo.Contact;
 import com.google.common.collect.Lists;
@@ -14,7 +14,7 @@ import com.google.common.collect.Lists;
 @Transactional
 @Service("contactService")
 public class ContactServiceImpl implements ContactService {
-	//@Autowired
+	@Autowired
 	private ContactRepository contactRepository;
 
 	@Override

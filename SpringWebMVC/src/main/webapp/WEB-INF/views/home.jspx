@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div version="2.2" xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:joda="http://www.joda.org/joda/time/tags">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+	<head>
+<title>Home</title>
+	</head>
+	<h1>Hello world!</h1>
+	<c:if test="${not empty serverTime}">
+		<P>The time on the server is ${serverTime}.</P>
+	</c:if>
+</div>
