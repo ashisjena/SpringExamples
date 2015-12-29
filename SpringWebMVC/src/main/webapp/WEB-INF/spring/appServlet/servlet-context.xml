@@ -21,6 +21,14 @@
 		<beans:property name="suffix" value=".jspx" />
 	</beans:bean>
 	
+	
+	<interceptors>
+		<interceptor>
+			<mapping path="/contacts" />
+			<beans:ref bean="contactInterceptor" />
+		</interceptor>
+	</interceptors>
+	
 	<context:component-scan base-package="com.demo.myapp" />
 	
 </beans:beans>

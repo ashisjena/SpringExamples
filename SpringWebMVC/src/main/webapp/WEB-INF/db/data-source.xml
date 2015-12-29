@@ -25,7 +25,7 @@
 		<property name="timeBetweenEvictionRunsMillis" value="180000" />
 		<property name="testWhileIdle" value="true" />
 		<property name="testOnReturn" value="true" />
-		<property name="validationQuery" value="select 1 from dual" />
+		<property name="validationQuery" value="${hibernate.validationQuery}" />
 	</bean>
 
 	<bean id="sessionFactory"
@@ -35,7 +35,7 @@
 			<props>
 				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
 				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
-				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop> <!-- Discouraged in production -->
+				<!-- <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop> --> <!-- Discouraged in production -->
 			</props>
 		</property>
 	</bean>

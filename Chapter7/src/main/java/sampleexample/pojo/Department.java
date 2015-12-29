@@ -17,6 +17,9 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 
+import org.hibernate.annotations.LazyToOne;
+import org.hibernate.annotations.LazyToOneOption;
+
 @Entity
 @Table(name = "DEPT")
 public class Department implements Serializable {
@@ -39,7 +42,8 @@ public class Department implements Serializable {
 	@OneToMany(fetch = FetchType.LAZY, targetEntity = Employee.class, mappedBy = "deptObj",orphanRemoval = true) // mappedBy---->Department property name in Employee class
 	private Set<Employee> employees = new HashSet<Employee>(0);
 	
-	@OneToOne(fetch = FetchType.LAZY, targetEntity = Address.class, mappedBy = "deptObj")
+	@OneToOne(fetch = FetchType.LAZY, optional = false, targetEntity = Address.class, mappedBy = "deptObj")
+	//optional = false helps in Lazy loading (it trusts you and doesn't check). if set to true, hibernate fires actual query to verify the relation exists or not to make sure. 
 	private Address addrObj;
 
 	public int getDeptNo() {

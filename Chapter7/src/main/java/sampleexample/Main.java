@@ -5,6 +5,7 @@ import java.util.Set;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 import sampleexample.dao.EntityDAO;
+import sampleexample.pojo.Address;
 import sampleexample.pojo.Department;
 import sampleexample.pojo.Employee;
 
@@ -23,6 +24,8 @@ public class Main {
 		
 		Department dept = deptDao.get(10);
 		System.out.println(dept);
+		Address address = dept.getAddrObj();
+		System.out.println(address);
 		Set<Employee> employees = dept.getEmployees();
 		System.out.println(employees);
 		

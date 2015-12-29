@@ -11,5 +11,6 @@ public class JmsSample {
 		for (int i = 0; i < 10; i++) {
 			messageSender.sendMessage("Test message: " + i);
 		}
+		ctx.close();
 	}
 }

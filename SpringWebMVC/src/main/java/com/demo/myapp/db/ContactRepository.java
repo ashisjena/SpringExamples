@@ -1,5 +1,11 @@
 package com.demo.myapp.db;
 
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import org.hibernate.Session;
+import org.hibernate.jdbc.Work;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -28,7 +34,18 @@ public class ContactRepository implements CrudRepository<Contact, Long> {
 
 	@Override
 	public Contact findOne(Long id) {
-		return (Contact) util.getSession().get(Contact.class, id.intValue());
+		Session session = null;
+		final Contact contact;
+		try
+		{
+			session = util.getSession();
+			contact = (Contact) session.get(Contact.class, id.intValue());
+		}
+		finally
+		{
+			session.close();
+		}
+		return contact;
 	}
 
 	@Override
